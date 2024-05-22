@@ -1,0 +1,177 @@
+<section class="content" id="about">
+    <div class="block-content">
+        <h3 class="block-title">Perfil</h3>
+        <h3 class="subheading">¡Hola! soy Ángel Rosales <strong>Web Developer FrontEnd</strong></h3>
+        <p>Web Developer con 10+ años de experiencia y enfocado en resultados. 
+            Me caracterizo por mi capacidad para solucionar problemas, priorizar, 
+            gestionar proyectos y trabajar en equipo. con mas de 8 años de experiencia en el framework Angular 
+            para desarrollo web y metodología SCRUM.</p>
+        <div class="info-list row">
+            <div class="col-sm-6"><span>Nombre : </span> Ángel Rosales</div>
+            <div class="col-sm-6"><span>Fecha de Nacimiento : </span> Noviembre 18, 1984 </div>
+            <div class="col-sm-6"><span>Dirección : </span> México, Puebla, Cd. de Puebla.</div>
+            <!-- <div class="col-sm-6"><span>Email : </span> davisanderson87@gmail.com</div> -->
+            <div class="col-sm-6"><span>Telefono : </span> +52 1 222 112 4889</div>
+            <!-- <div class="col-sm-6"><span>Interes : </span> Frelance, Full-Time</div> -->
+        </div>
+    </div>
+    <div class="block-content">
+        <h3 class="block-title">Habilidades Profesionales <span style="font-size: 10px;">(años)</span></h3>
+        <!-- <div *ngFor="let profex of profesionalList$"> -->
+        @for (profex of profesionalList$; track $index) {
+        <label class="progress-bar-label">{{ profex.nombre }}</label>
+        <div class="progress">
+            <div [style.width.%]=profex.porcentaje class="progress-bar" role="progressbar"
+                attr.aria-valuenow="{{ profex.porcentaje }}" aria-valuemin="0" aria-valuemax="100">
+                <span>{{ profex.valor }}</span>
+            </div>
+        </div>
+        }
+        <!-- </div> -->
+    </div>
+    <div class="block-content">
+        <h3 class="block-title">Experiencia</h3>
+        <div class="timeline experience">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="exp-holder">
+                        <!-- <div *ngFor="let expex of cv.experiencia">
+                         
+                      </div> -->
+                        @for (expex of experienciaList$; track $index) {
+                        <div class="exp">
+                            <div class="hgroup">
+                                <h4><span>{{ expex.empresa }}</span> - {{ expex.puesto }}</h4>
+                                <h5> {{ expex.fechaInicial }} - {{ expex.fechaFin}}</h5>
+                            </div>
+                            <div>
+                                <h5>Proyectos:</h5>
+                            </div>
+                            @for (p of expex.proyectos; track $index) {
+
+                            <li>{{ p }}</li>
+
+                            }
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="block-content">
+        <h3 class="block-title">Educación</h3>
+        <div class="timeline education">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="exp-holder">
+
+                        @for (edux of educacionList$; track $index) {
+                        <div class="exp">
+                            <div class="hgroup">
+                                <h4>{{ edux.nombre }}</h4>
+                                <h5>{{ edux.fecha }}</h5>
+                            </div>
+                            <div><span style="font-weight:500;">Grado: </span>{{ edux.grado }}</div>
+                            <p>{{ edux.descripcion }}</p>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="block-content">
+        <h3 class="block-title">Servicios</h3>
+
+        <div class="row">
+            @for (serv of serviciosList$; track $index) {
+            <div class="col-md-4 col-sm-6 service">
+                <div class="service-icon">
+                    <i class="{{serv.icono}}"></i>
+                </div>
+                <h4>{{serv.nombre}}</h4>
+                <p>{{serv.descripcion}}</p>
+            </div>
+            }
+        </div>
+        <!-- <div class="col-md-4 col-sm-6 service">
+                <div class="service-icon">
+                    <i class="ion-pie-graph"></i>
+                </div>
+                <h4>Desarrollo de Aplicaciones</h4>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                    laoreet.</p>
+            </div>
+            <div class="col-md-4 col-sm-6 service">
+                <div class="service-icon">
+                    <i class="ion-paintbucket"></i>
+                </div>
+                <h4>Diseño Grafico</h4>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                    laoreet.</p>
+            </div>
+            <div class="col-md-4 col-sm-6 service">
+                <div class="service-icon">
+                    <i class="ion-printer"></i>
+                </div>
+                <h4>Print Design</h4>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                    laoreet.</p>
+            </div>
+            <div class="col-md-4 col-sm-6 service">
+                <div class="service-icon">
+                    <i class="ion-qr-scanner"></i>
+                </div>
+                <h4>Graphic Design</h4>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                    laoreet.</p>
+            </div>
+            <div class="col-md-4 col-sm-6 service">
+                <div class="service-icon">
+                    <i class="ion-social-buffer"></i>
+                </div>
+                <h4>Print Design</h4>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+                    laoreet.</p>
+            </div>
+        </div> -->
+    </div>
+    <!--  <div class="block-content">
+        <h3 class="block-title">Awards</h3>
+        <div class="row">
+            <div class="col-md-3 col-sm-6 awards">
+                <img src="assets\images\awards\1.jpeg" alt="">
+            </div>
+            <div class="col-md-3 col-sm-6 awards">
+                <img src="assets\images\awards\2.jpeg" alt="">
+            </div>
+            <div class="col-md-3 col-sm-6 awards">
+                <img src="assets\images\awards\3.jpeg" alt="">
+            </div>
+            <div class="col-md-3 col-sm-6 awards">
+                <img src="assets\images\awards\4.jpeg" alt="">
+            </div>
+        </div>
+    </div> -->
+    <div class="block-content">
+        <h3 class="block-title">Testimonios</h3>
+        <div class="row">
+            <div id="liontestimonial" class="owl-carousel owl-theme">
+                @for (testix of testimonioList$; track $index) {
+                <div class="item testimonials">
+                    <img src="assets\images\testimonials\1.jpeg" alt="">
+                    <blockquote>{{ testix.descripcion }}
+                        <p class="quote"><span>{{ testix.nombre }}</span> - {{ testix.cargo }}</p>
+                    </blockquote>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-12 btn-email">
+            <!-- <a class="btn lowercase">davisanderson87@gmail.com</a> -->
+        </div>
+    </div>
+</section>
