@@ -2,9 +2,9 @@
     <div class="block-content">
         <h3 class="block-title">Perfil</h3>
         <h3 class="subheading">¡Hola! soy Ángel Rosales <strong>Web Developer FrontEnd</strong></h3>
-        <p>Web Developer con 10+ años de experiencia y enfocado en resultados. 
-            Me caracterizo por mi capacidad para solucionar problemas, priorizar, 
-            gestionar proyectos y trabajar en equipo. con mas de 8 años de experiencia en el framework Angular 
+        <p>Web Developer con +10 años de experiencia y enfocado en resultados.
+            Me caracterizo por mi capacidad para solucionar problemas, priorizar,
+            gestionar proyectos y trabajar en equipo. con mas de 8 años de experiencia en el framework Angular
             para desarrollo web y metodología SCRUM.</p>
         <div class="info-list row">
             <div class="col-sm-6"><span>Nombre : </span> Ángel Rosales</div>
@@ -17,7 +17,6 @@
     </div>
     <div class="block-content">
         <h3 class="block-title">Habilidades Profesionales <span style="font-size: 10px;">(años)</span></h3>
-        <!-- <div *ngFor="let profex of profesionalList$"> -->
         @for (profex of profesionalList$; track $index) {
         <label class="progress-bar-label">{{ profex.nombre }}</label>
         <div class="progress">
@@ -27,7 +26,7 @@
             </div>
         </div>
         }
-        <!-- </div> -->
+
     </div>
     <div class="block-content">
         <h3 class="block-title">Experiencia</h3>
@@ -35,14 +34,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="exp-holder">
-                        <!-- <div *ngFor="let expex of cv.experiencia">
-                         
-                      </div> -->
                         @for (expex of experienciaList$; track $index) {
                         <div class="exp">
                             <div class="hgroup">
                                 <h4><span>{{ expex.empresa }}</span> - {{ expex.puesto }}</h4>
-                                <h5> {{ expex.fechaInicial }} - {{ expex.fechaFin}}</h5>
+                                <h5> {{ expex.fechaInicial }}<br>{{ expex.fechaFin}}</h5>
                             </div>
                             <div>
                                 <h5>Proyectos:</h5>

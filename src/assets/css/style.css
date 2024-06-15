@@ -1108,7 +1108,7 @@ h2.menu-item:after {
     border-radius: 0;
     box-shadow: none;
     overflow: visible;
-    width: 45%;
+    width: 90%;
 }
 
 .progress-bar {
