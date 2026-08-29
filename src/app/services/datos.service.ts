@@ -1,45 +1,31 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, pipe } from 'rxjs';
+import { Firestore, doc, docData } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+
+export interface ContenidoPortafolio {
+  profesional: any[];
+  experiencia: any[];
+  educacion: any[];
+  servicios: any[];
+  testimonios: any[];
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class DatosService {
-  profesional: any[] = [];
-  educacion: any[] = [];
-  testimonio: any[] = [];
-  experiencia: any[] = [];
-  blog: any[] = [];
-  url: any = 'https://portafolio-arj-default-rtdb.firebaseio.com/';
 
-  constructor(private http: HttpClient) {
-    this.CargarProfesional();
-    this.CargarEducacion();
-    this.CargarTestimonio();
-    this.CargarExperiencia();
-    this.CargarServicios();
+  private contenidoRef = doc(
+    this.firestore,
+    'portafolio/contenido'
+  );
+
+  constructor(private firestore: Firestore) {}
+
+  /**
+   * Obtiene todo el contenido del portafolio
+   */
+  obtenerContenido(): Observable<ContenidoPortafolio> {
+    return docData(this.contenidoRef) as Observable<ContenidoPortafolio>;
   }
-
-  public CargarProfesional(): Observable<any> {
-    return this.http.get<any>(this.url  + 'profesional.json').pipe(res => res);
-  }
-
-  public CargarEducacion(): Observable<any> {
-    return this.http.get<any>(this.url  + 'educacion.json').pipe(res => res);
-  }
-
-  public CargarTestimonio(): Observable<any> {
-    return this.http.get<any>(this.url  + 'testimonios.json').pipe(res => res);
-  }
-
-  public CargarExperiencia(): Observable<any> {
-    return this.http.get<any>(this.url  + 'experiencia.json').pipe(res => res);
-  }
-
-  public CargarServicios(): Observable<any> {
-    return this.http.get<any>(this.url  + 'servicios.json').pipe(res => res);
-  }
-
-
 }
