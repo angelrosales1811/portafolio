@@ -1,0 +1,66 @@
+.hgroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+
+  h4,
+  h5 {
+    margin: 0;
+  }
+
+  h4 {
+    flex: 1;
+  }
+
+  h5 {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
+
+.empresa {
+  display: block;
+  font-weight: 600;
+  color: #3b4b63;
+}
+
+.puesto {
+  display: block;
+  font-size: 0.85rem;
+  color: #8e99aa;
+  font-style: italic;
+  margin-top: 2px;
+}
+.exp {
+  position: relative;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+.proyectos {
+  margin-left: 1.5rem;
+}
+
+.proyectos ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.proyectos li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 8px;
+}
+
+.proyectos li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 13px;
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+    background: #8a97a8;
+}

@@ -1161,14 +1161,15 @@ h2.menu-item:after {
 }
 
 .timeline:before {
-    background: #ddd;
-    bottom: 0;
     content: "";
-    left: 18px;
     position: absolute;
+
+    left: 18px;
     top: 50px;
+    bottom: 24px;
+
     width: 1px;
-    height: 75%;
+    background: #ddd;
 }
 
 .timeline:after {
@@ -1240,7 +1241,7 @@ h2.menu-item:after {
 
 .exp .hgroup h5:before {
     color: #ddd;
-    content: "/";
+    
     left: 0;
     left: 30px;
     position: absolute;

@@ -53,15 +53,25 @@
               <div class="exp">
                 <div class="hgroup">
                   <h4>
-                    <span>{{ expex.empresa }}</span> - {{ expex.puesto }}
+                    <span class="empresa">{{ expex.empresa }}</span>
+
+                    <span class="puesto">
+                      {{ expex.puesto }}
+                    </span>
                   </h4>
-                  <h5>{{ expex.fechaInicial }}<br />{{ expex.fechaFin }}</h5>
+
+                  <h5>{{ expex.fechaInicial }} - {{ expex.fechaFin }}</h5>
                 </div>
-                <div>
-                  <h5>Proyectos:</h5>
-                </div>
-                @for (p of expex.proyectos; track $index) {
-                  <li>{{ p }}</li>
+
+                @if (expex.proyectos?.length) {
+                  <div class="proyectos">
+                    <h5>PROYECTOS:</h5>
+                    <ul>
+                      @for (p of expex.proyectos; track $index) {
+                        <li>{{ p }}</li>
+                      }
+                    </ul>
+                  </div>
                 }
               </div>
             }
