@@ -658,7 +658,7 @@ h2.menu-item:after {
 /* --- Inline Menu --- */
 
 .inline-menu-container {
-    background: #F1F3F6;
+    background: #868687;
     position: fixed;
     height: 40px;
     width: 69%;
@@ -666,6 +666,9 @@ h2.menu-item:after {
     top: -50px;
     transition: all 0.5s;
     z-index: 1;
+    span {
+        color: #FFF;
+    }
 }
 
 .inline-menu-container.showx {
@@ -1134,7 +1137,7 @@ h2.menu-item:after {
 }
 
 .progress-bar-label {
-    color: #333;
+    color: #767482;
     font-weight: 500;
     margin-bottom: 10px;
 }

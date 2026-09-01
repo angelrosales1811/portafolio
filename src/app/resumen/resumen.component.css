@@ -19,6 +19,34 @@
   }
 }
 
+.subheading {
+  strong {
+  font-size: 1.8rem;
+  color: #8e99aa;
+  /* font-style: italic; */
+  }
+
+  
+}
+
+.info-list{
+  span {
+    /* display: block; */
+    font-size: 0.85rem;
+    color: #8e99aa;
+    font-style: italic;
+  }
+}
+
+.service,
+.hgroup {
+  h4 {
+    font-size: 1.2rem;
+    color: #666;
+    font-weight: 600;
+  }  
+}
+
 .empresa {
   display: block;
   font-weight: 600;
@@ -39,6 +67,10 @@
 }
 .proyectos {
   margin-left: 1.5rem;
+}
+
+.proyectos h5 {
+  color: #8e99aa;
 }
 
 .proyectos ul {
@@ -63,4 +95,35 @@
 
     border-radius: 50%;
     background: #8a97a8;
+}
+
+.content {
+  background: #1f2937;
+  color: #e5e7eb;
+}
+
+.block-title,
+.subheading,
+.hgroup h2 h3 h4 h5{
+  color: #ffffff;
+}
+
+.empresa {
+  color: #60a5fa;
+}
+
+.puesto {
+  color: #9ca3af;
+}
+
+.testimonials {
+    background: #333;
+    border: 1px solid #F1F3F6;
+    position: relative;
+    margin: 50px 0;
+    border-radius: 53px;
+    blockquote{
+      color: #a7a4a4;
+      font-size: 0.95rem;
+    }
 }
