@@ -78,7 +78,7 @@ h5,
 h6 {
     text-transform: uppercase;
     font-weight: 500;
-    color: #333;
+    color: #bbb;
     letter-spacing: 1px;
 }
 
@@ -838,7 +838,7 @@ h2.menu-item:after {
     overflow-y: scroll;
     top: 100%;
     left: 30%;
-    background: #FFF;
+    background: #1f2937;
     transition: opacity 0.7s ease-out;
     z-index: 1;
     -webkit-overflow-scrolling: touch;
@@ -895,11 +895,16 @@ h2.menu-item:after {
 .block-title {
     font-size: 24px;
     text-transform: uppercase;
-    color: #333;
     padding-bottom: 15px;
     border-bottom: 1px solid #ddd;
     margin-bottom: 30px;
     font-weight: 600;
+}
+
+.block-title,
+.subheading,
+.hgroup h2 h3 h4 h5{
+  color: #ffffff;
 }
 
 /*-------------------------------------------------------------------
@@ -1498,6 +1503,21 @@ h4.package {
 }
 
 .portfolio-column {
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.portfolio-column img {
+    width: 100%;
+    display: block;
+}
+
+.portfolio-hover,
+.portfolio-overlay {
+    border-radius: inherit;
+}
+
+.portfolio-column {
     overflow: hidden;
     position: relative;
     width: 100%;
@@ -1619,6 +1639,18 @@ h4.package {
 .classic .portfolio-content p {
     color: #666;
     margin-top: 0;
+}
+
+.portfolio-column img {
+    width: 100%;
+    display: block;
+    opacity: 0.75;
+    transition: all 0.5s ease;
+}
+
+.portfolio-column:hover img {
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 .project-head span {

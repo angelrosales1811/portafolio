@@ -102,12 +102,11 @@
   color: #e5e7eb;
 }
 
-.block-title,
-.subheading,
-.hgroup h2 h3 h4 h5{
-  color: #ffffff;
+.text {
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 1.8;
 }
-
 .empresa {
   color: #60a5fa;
 }
