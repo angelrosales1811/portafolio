@@ -5,6 +5,11 @@ export const environment = {
     projectId: 'portafolio-ar1811',
     storageBucket: 'portafolio-ar1811.firebasestorage.app',
     messagingSenderId: '240797621846',
-    appId: '1:240797621846:web:14d22dfc6f59916690a5f7'
-  }
+    appId: '1:240797621846:web:14d22dfc6f59916690a5f7',
+  },
+  emailjs: {
+    publicKey: '5NUJ1dZrQeMDtlCPG',
+    serviceId: 'service_nnm8eae',
+    templateId: 'template_y06n5rn',
+  },
 };
