@@ -1,0 +1,67 @@
+.hero-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+
+  margin: 25px 0 30px;
+
+  max-width: 500px;
+}
+
+.metric-item {
+  min-width: 95px;
+
+  padding: 10px 12px;
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  text-align: center;
+
+  transition: 0.25s ease;
+}
+
+.metric-item:hover {
+  border-color: #00b4ff;
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 0 15px rgba(0, 180, 255, 0.25);
+}
+
+.metric-icon {
+  display: block;
+
+  font-size: 18px;
+
+  margin-bottom: 5px;
+}
+
+.metric-value {
+  display: block;
+
+  color: #fff;
+
+  font-size: 20px;
+
+  font-weight: 700;
+
+  line-height: 1;
+}
+
+.metric-label {
+  display: block;
+
+  margin-top: 5px;
+
+  font-size: 11px;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}

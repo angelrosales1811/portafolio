@@ -1,23 +1,76 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { ContactoComponent } from './contacto/contacto.component';
 import { ExtraComponent } from './extra/extra.component';
 import { PortafolioComponent } from './portafolio/portafolio.component';
 import { ResumenComponent } from './resumen/resumen.component';
 
+import { AnalyticsService } from './services/analytics.service';
+
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet,
+    CommonModule,
+    //RouterOutlet,
     ResumenComponent,
     ContactoComponent,
     PortafolioComponent,
     ExtraComponent,
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'angelRosales';
+
+  readonly stats$ = this.analytics.getStats();
+
+  constructor(private readonly analytics: AnalyticsService) {}
+
+  async ngOnInit(): Promise<void> {
+    await this.registerVisit();
+  }
+
+  private async registerVisit(): Promise<void> {
+    const today = new Date().toDateString();
+
+    const lastVisit = localStorage.getItem('lastVisit');
+
+    if (lastVisit === today) {
+      return;
+    }
+
+    localStorage.setItem('lastVisit', today);
+
+    await this.analytics.track('visits');
+  }
+
+  async downloadCV(): Promise<void> {
+    await this.analytics.track('cvDownloads');
+  }
+
+  async openGithub(): Promise<void> {
+    await this.analytics.track('githubClicks');
+  }
+
+  async openLinkedin(): Promise<void> {
+    await this.analytics.track('linkedinClicks');
+  }
+
+  async openWhatsapp(): Promise<void> {
+    await this.analytics.track('whatsappClicks');
+  }
+
+  async openFacebook(): Promise<void> {
+    await this.analytics.track('facebookClicks');
+  }
+
+  async openPortfolio(): Promise<void> {
+    await this.analytics.track('portfolioViews');
+  }
+
+  async sendContact(): Promise<void> {
+    await this.analytics.track('contactsSent');
+  }
 }

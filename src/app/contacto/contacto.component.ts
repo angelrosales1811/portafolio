@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import emailjs from '@emailjs/browser';
 import { environment } from '../../environments/environment';
+import { AnalyticsService } from '../services/analytics.service';
 
 @Component({
   selector: 'app-contacto',
@@ -22,7 +23,7 @@ export class ContactoComponent {
   mensajeExito = '';
   mensajeError = '';
 
-  constructor() {
+  constructor(private analytics: AnalyticsService) {
     emailjs.init({
       publicKey: environment.emailjs.publicKey,
     });
@@ -58,6 +59,7 @@ export class ContactoComponent {
         formulario,
       )
       .then(() => {
+        this.analytics.track('contactsSent');
         this.mensajeExito =
           '¡Mensaje enviado correctamente! Me pondré en contacto contigo pronto.';
 
