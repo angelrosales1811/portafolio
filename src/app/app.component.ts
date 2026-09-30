@@ -1,5 +1,6 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ContactoComponent } from './contacto/contacto.component';
 import { ExtraComponent } from './extra/extra.component';
 import { PortafolioComponent } from './portafolio/portafolio.component';
@@ -26,13 +27,25 @@ export class AppComponent implements OnInit {
 
   readonly stats$ = this.analytics.getStats();
 
-  constructor(private readonly analytics: AnalyticsService) {}
+  constructor(
+    private readonly analytics: AnalyticsService,
+    @Inject(PLATFORM_ID)
+    private readonly platformId: object,
+  ) {}
 
   async ngOnInit(): Promise<void> {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     await this.registerVisit();
   }
 
   private async registerVisit(): Promise<void> {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
     const today = new Date().toDateString();
 
     const lastVisit = localStorage.getItem('lastVisit');

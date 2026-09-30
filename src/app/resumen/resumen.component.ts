@@ -9,7 +9,6 @@ import { DatosService } from '../services/datos.service';
   styleUrl: './resumen.component.css',
 })
 export class ResumenComponent implements OnInit {
-
   public profesionalList$: any[] = [];
   public educacionList$: any[] = [];
   public testimonioList$: any[] = [];
@@ -21,7 +20,6 @@ export class ResumenComponent implements OnInit {
   ngOnInit(): void {
     this.cv.obtenerContenido().subscribe({
       next: (data) => {
-
         this.profesionalList$ = data.profesional ?? [];
 
         this.educacionList$ = data.educacion ?? [];
@@ -30,28 +28,23 @@ export class ResumenComponent implements OnInit {
 
         this.serviciosList$ = data.servicios ?? [];
 
-        this.experienciaList$ = (data.experiencia ?? []).map(
-          (item: any) => ({
-            ...item,
-            proyectos: Array.isArray(item.proyectos)
-              ? item.proyectos
-              : item.Proyectos?.split('//') ?? []
-          })
-        );
-
-        console.log('Contenido Firestore:', data);
+        this.experienciaList$ = (data.experiencia ?? []).map((item: any) => ({
+          ...item,
+          proyectos: Array.isArray(item.proyectos)
+            ? item.proyectos
+            : (item.Proyectos?.split('//') ?? []),
+        }));
       },
 
       error: (err) => {
         console.error('Error al cargar Firestore:', err);
 
         this.cargarInformacionRespaldo();
-      }
+      },
     });
   }
 
   private cargarInformacionRespaldo(): void {
-
     this.profesionalList$ = [
       {
         nombre: 'Angular',
