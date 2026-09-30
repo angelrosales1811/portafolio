@@ -6,6 +6,7 @@ import { ExtraComponent } from './extra/extra.component';
 import { PortafolioComponent } from './portafolio/portafolio.component';
 import { ResumenComponent } from './resumen/resumen.component';
 
+import { RouterOutlet } from '@angular/router';
 import { AnalyticsService } from './services/analytics.service';
 
 @Component({
@@ -13,7 +14,7 @@ import { AnalyticsService } from './services/analytics.service';
   standalone: true,
   imports: [
     CommonModule,
-    //RouterOutlet,
+    RouterOutlet,
     ResumenComponent,
     ContactoComponent,
     PortafolioComponent,
