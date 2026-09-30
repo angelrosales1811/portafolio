@@ -1,27 +1,40 @@
+/* ==========================================================
+   HERO METRICS
+   ========================================================== */
+
 .hero-metrics {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
+  display: grid;
 
-  margin: 25px 0 30px;
+  grid-template-columns: repeat(4, 1fr);
 
-  max-width: 500px;
+  width: 320px;
+
+  gap: 8px;
+
+  margin: 25px 0 20px;
 }
 
 .metric-item {
-  min-width: 95px;
+  position: relative;
 
-  padding: 10px 12px;
+  height: 90px;
 
-  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   background: rgba(255, 255, 255, 0.08);
 
   border: 1px solid rgba(255, 255, 255, 0.12);
 
-  text-align: center;
+  border-radius: 12px;
 
-  transition: 0.25s ease;
+  backdrop-filter: blur(6px);
+
+  transition: all 0.25s ease;
+
+  cursor: default;
 }
 
 .metric-item:hover {
@@ -35,33 +48,177 @@
 .metric-icon {
   display: block;
 
+  color: #ffffff;
+
   font-size: 18px;
 
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 
 .metric-value {
   display: block;
 
-  color: #fff;
+  color: #ffffff;
 
-  font-size: 20px;
+  font-size: 22px;
 
   font-weight: 700;
 
   line-height: 1;
 }
 
+/* ocultar labels antiguos */
 .metric-label {
-  display: block;
+  display: none;
+}
 
-  margin-top: 5px;
+/* ==========================================================
+   TOOLTIP METRICAS
+   ========================================================== */
+
+.metric-item::after {
+  content: attr(data-tooltip);
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: calc(100% + 10px);
+
+  transform: translateX(-50%);
+
+  padding: 6px 10px;
+
+  background: rgba(17, 24, 39, 0.95);
+
+  color: #fff;
+
+  border-radius: 8px;
 
   font-size: 11px;
 
-  color: rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
 
-  text-transform: uppercase;
+  opacity: 0;
 
-  letter-spacing: 1px;
+  visibility: hidden;
+
+  transition: all 0.2s ease;
+
+  pointer-events: none;
+
+  z-index: 9999;
+}
+
+.metric-item::before {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: calc(100% + 4px);
+
+  transform: translateX(-50%);
+
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid rgba(17, 24, 39, 0.95);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transition: all 0.2s ease;
+}
+
+.metric-item:hover::after,
+.metric-item:hover::before {
+  opacity: 1;
+
+  visibility: visible;
+}
+
+/* ==========================================================
+   REDES SOCIALES
+   ========================================================== */
+
+.social {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin: 15px 0 0;
+}
+
+.social li {
+  margin: 0;
+}
+
+.social a {
+  position: relative;
+
+  color: #fff;
+}
+
+.social a::after {
+  content: attr(data-tooltip);
+
+  position: absolute;
+
+  left: 50%;
+
+  bottom: calc(100% + 10px);
+
+  transform: translateX(-50%);
+
+  padding: 6px 10px;
+
+  background: rgba(17, 24, 39, 0.95);
+
+  color: #fff;
+
+  border-radius: 8px;
+
+  font-size: 11px;
+
+  white-space: nowrap;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transition: all 0.2s ease;
+
+  pointer-events: none;
+
+  z-index: 9999;
+}
+
+.social a:hover::after {
+  opacity: 1;
+
+  visibility: visible;
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media (max-width: 767px) {
+  .hero-metrics {
+    width: 100%;
+
+    max-width: 100%;
+
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .social {
+    display: flex;
+  }
 }

@@ -20,117 +20,97 @@
       <div class="name-block-container">
         <h1><span>Hola, Soy</span>Angel Rosales</h1>
         <h2>SENIOR FRONTEND DEVELOPER</h2>
-
+        <br />
         <div class="hero-metrics" *ngIf="stats$ | async as stats">
-          <div class="metric-item">
-            <span class="metric-icon">👀</span>
+          <div class="metric-item" data-tooltip="Visitas">
+            <i class="ion-eye metric-icon"></i>
+
             <span class="metric-value">
               {{ stats["visits"] || 0 }}
             </span>
-            <span class="metric-label"> Visitas </span>
           </div>
 
-          <div class="metric-item">
-            <span class="metric-icon">💼</span>
+          <div class="metric-item" data-tooltip="Proyectos abiertos">
+            <i class="ion-briefcase metric-icon"></i>
+
             <span class="metric-value">
               {{ stats["portfolioViews"] || 0 }}
             </span>
-            <span class="metric-label"> Portafolio </span>
           </div>
 
-          <div class="metric-item">
-            <span class="metric-icon">📄</span>
+          <div class="metric-item" data-tooltip="CV descargados">
+            <i class="ion-document-text metric-icon"></i>
+
             <span class="metric-value">
               {{ stats["cvDownloads"] || 0 }}
             </span>
-            <span class="metric-label"> CV </span>
           </div>
 
-          <div class="metric-item">
-            <span class="metric-icon">📩</span>
+          <div class="metric-item" data-tooltip="Mensajes recibidos">
+            <i class="ion-email metric-icon"></i>
+
             <span class="metric-value">
               {{ stats["contactsSent"] || 0 }}
             </span>
-            <span class="metric-label"> Contactos </span>
-          </div>
-
-          <div class="metric-item">
-            <span class="metric-icon">🐙</span>
-            <span class="metric-value">
-              {{ stats["githubClicks"] || 0 }}
-            </span>
-            <span class="metric-label"> GitHub </span>
-          </div>
-
-          <div class="metric-item">
-            <span class="metric-icon">💼</span>
-            <span class="metric-value">
-              {{ stats["linkedinClicks"] || 0 }}
-            </span>
-            <span class="metric-label"> LinkedIn </span>
-          </div>
-
-          <div class="metric-item">
-            <span class="metric-icon">📘</span>
-            <span class="metric-value">
-              {{ stats["facebookClicks"] || 0 }}
-            </span>
-            <span class="metric-label"> Facebook </span>
-          </div>
-
-          <div class="metric-item">
-            <span class="metric-icon">💬</span>
-            <span class="metric-value">
-              {{ stats["whatsappClicks"] || 0 }}
-            </span>
-            <span class="metric-label"> WhatsApp </span>
           </div>
         </div>
         <br />
-        <ul class="social">
+        <ul class="social" *ngIf="stats$ | async as stats">
           <li>
             <a
               href="https://www.facebook.com/AngelRosales1811"
               target="_blank"
               rel="noopener noreferrer"
               (click)="openFacebook()"
+              [attr.data-tooltip]="
+                'Facebook: ' + (stats['facebookClicks'] || 0)
+              "
             >
               <i class="ion-social-facebook"></i>
             </a>
           </li>
+
           <li>
             <a
               href="https://www.linkedin.com/in/angel-rosales-a943ba134/"
               target="_blank"
               rel="noopener noreferrer"
               (click)="openLinkedin()"
+              [attr.data-tooltip]="
+                'LinkedIn: ' + (stats['linkedinClicks'] || 0)
+              "
             >
               <i class="ion-social-linkedin"></i>
             </a>
           </li>
+
           <li>
             <a
               href="https://github.com/angelrosales1811"
               target="_blank"
               rel="noopener noreferrer"
               (click)="openGithub()"
+              [attr.data-tooltip]="'GitHub: ' + (stats['githubClicks'] || 0)"
             >
               <i class="ion-social-github"></i>
             </a>
           </li>
-          <!-- <li><a href="https://www.youtube.com/channel/UClZiO1dvoBv1CQrMPpKL_yg/" target_="_blank"><i class="ion-social-youtube"></i></a></li> -->
+
           <li>
             <a
               href="https://wa.me/5212221124889"
               target="_blank"
               rel="noopener noreferrer"
               (click)="openWhatsapp()"
+              [attr.data-tooltip]="
+                'WhatsApp: ' + (stats['whatsappClicks'] || 0)
+              "
             >
               <i class="ion-social-whatsapp"></i>
             </a>
           </li>
         </ul>
-        <br />
+
         <a
           target="_blank"
           href="./../assets/docs/Miguel_Ángel_Rosales_Jiménez_Curriculum.pdf"
