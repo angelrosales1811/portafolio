@@ -212,12 +212,53 @@
   .hero-metrics {
     width: 100%;
 
-    max-width: 100%;
+    display: grid;
 
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 4px;
+
+    margin: 15px 0;
+  }
+
+  .metric-item {
+    height: 55px;
+
+    padding: 4px;
+
+    border-radius: 8px;
+  }
+
+  .metric-icon {
+    font-size: 12px;
+
+    margin-bottom: 2px;
+  }
+
+  .metric-value {
+    font-size: 14px;
+
+    font-weight: 700;
+  }
+  .name-block-container h1 {
+    margin-bottom: 5px;
+  }
+
+  .name-block-container h2 {
+    margin-bottom: 12px;
+    min-height: auto;
+  }
+
+  .hero-metrics {
+    margin: 10px 0;
+    gap: 10px;
   }
 
   .social {
-    display: flex;
+    margin: 12px 0;
+  }
+
+  .btn-download {
+    margin: 10px 0 15px;
   }
 }
